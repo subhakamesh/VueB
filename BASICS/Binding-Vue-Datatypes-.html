@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{message}}</p>
+      <p>Is It True : {{ IsItTrue ? 'yes' : 'No' }}</p>
+      <p>{{array[1]}}</p>
+      <p>{{obj.car}}</p>
+      <p>{{func()}}</p>
+      <p>{{welcome()}}</p>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vuejs', //string
+        IsItTrue: true, //Bol
+        array: ['kamesh', 'chavali'], //Array
+        obj: {
+          //Object
+          car: 'Tata',
+        },
+        func: () => {
+          //functions
+          return 'Hay message from function !';
+        },
+      },
+      methods: {
+        welcome() {
+          //Methods
+          return this.message;
+        },
+      },
+    });
+  </script>
+</html>

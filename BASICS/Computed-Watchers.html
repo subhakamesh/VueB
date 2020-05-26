@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <input type="text" v-model="name"></input>
+        <button v-on:click="Toggleactive">Other Action</button>
+        <p>{{computedMsg}} </p>
+        <p>Active Status : {{getActiveStatus()}}</p>
+        <p>{{loading}}</p>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+
+          name:'',
+          active:false,
+          loading:false
+      },
+      watch:{ //asynchronous
+            active(value){
+             this.loading = true;
+             setTimeout(()=>{
+               this.loading = false;
+             },3000)
+          }
+        },
+      computed: {//synchronous
+
+        computedMsg(){
+            console.log('Message !! Triggered')
+              return this.name ==='kamesh' ?
+              'Welcome' + ' ' + this.name : 'Not Allowed'
+        }
+
+      },
+      methods: {
+
+          getActiveStatus(){
+            console.log('ActiveStatus !! Triggered')
+
+                  return this.active ? 'Active' :'Not Active'
+          },
+          Toggleactive(){
+
+            this.active = this.active ? 'false' :'true'
+          }
+      },
+    });
+  </script>
+</html>

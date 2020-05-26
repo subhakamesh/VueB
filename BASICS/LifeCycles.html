@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        {{name}}
+      </p>
+      <input type="text" v-model.lazy="changename"></input>
+      <button @click="updatename">Update Name</button>
+      <button @click="killIt">Kill Instance</button>
+    </div>
+  </body>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name: 'kamesh',
+        changename:''
+      },
+      methods: {
+        updatename(){
+
+               this.name = this.changename;
+           },
+           killIt(){
+                this.$destroy();
+           }
+      },
+
+      beforeCreate() {
+        console.log('beforeCreate()');
+      },
+      created() {
+        console.log('Create()');
+      },
+      beforeMount() {
+        console.log('beforeMount()');
+      },
+      mounted() {
+        console.log('mount()');
+      },
+      beforeUpdate() {
+          console.log('beforeUpdate()');
+      },
+      updated() {
+          console.log('updated()');
+      },
+      beforeDestroy() {
+          console.log('beforeDestroy()');
+      },
+      destroyed() {
+          console.log('destroyed()');
+      },
+    });
+  </script>
+</html>

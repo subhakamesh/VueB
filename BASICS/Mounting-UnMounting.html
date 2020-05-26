@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app1">
+      <kstable></kstable>
+    </div>
+    <div id="app2">
+      <kstable></kstable>
+    </div>
+  </body>
+  <script>
+    Vue.component('kstable', {
+      data() {
+        return {
+          name: 'chavali',
+        };
+      },
+      methods: {
+        alertMessage() {
+          alert('Hello there..!');
+        },
+      },
+      template: `
+      <div>
+        <div>{{name}}</div>
+        <button @click="alertMessage">Check..!!</button>
+      </div>
+     `,
+    });
+    const app1 = new Vue({
+      el: '#app1',
+    });
+
+    const app2 = new Vue({
+      el: '#app2',
+    });
+
+    setTimeout(() => {
+      app1.$mount('#app1');
+    }, 3000);
+
+    setTimeout(() => {
+      app2.$mount('#app2');
+    }, 6000);
+  </script>
+</html>

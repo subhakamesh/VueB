@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app1">
+        <div ref="title">Hello..!!</div>
+      {{value}}
+      <button @click="changeSomething">Check</button>
+    </div>
+    <hr></hr>
+    <div id="app2">
+      {{value}}
+      <button @click="saysomething">Check</button>
+    </div>
+  </body>
+  <script>
+    let message = 'Hello..!';
+    const data = {
+        value: 'Value from instane app1',
+    }
+
+    const app1 = new Vue({
+      el: '#app1',
+      data: data,
+      methods: {
+        changeSomething(){
+
+            app2.value = 'Changed..!!'
+
+            this.$refs.title.style.color = 'red';
+            this.$refs.title.style.fontSize = '50px';
+        }
+      },
+    });
+    const app2 = new Vue({
+      el: '#app2',
+      data: {
+        value: 'Value from instance app2',
+      },
+      methods: {
+        saysomething() {
+          alert(message);
+        },
+      },
+    });
+    setTimeout(()=>{
+        app1.value = 'Changes..!!'
+
+    },3000)
+  </script>
+</html>

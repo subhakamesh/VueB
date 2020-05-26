@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-on:keyup.space.enter.m="handlekey" />
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        handlekey(event) {
+          console.log(event.target.value);
+        },
+      },
+    });
+  </script>
+</html>

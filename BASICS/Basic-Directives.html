@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+    <img id="imgg" v-bind:src="src" v-bind:alt="alt"></img>
+    <a v-bind:href="link">Google</a>
+    <p v-text= "Mytext"></p>
+    <div v-html="Myhtml"></div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        src: 'Img/vuejs-1175052.webp',
+        alt: 'kamesh',
+        link: 'https://www.google.com/',
+        Mytext : 'Hay we are at Directives',
+        Myhtml : '<strong>Hy rendered by v-html </strong>'
+      },
+    });
+  </script>
+</html>

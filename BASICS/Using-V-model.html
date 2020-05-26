@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <form id="app" v-on:submit.prevent="formHandler">
+             
+             <label>Name</label>
+             <input type="text" v-model.trim.lazy="formdata.name"></input>
+             <hr>
+             <label>Last Name</label>
+             <input type="text" v-model.trim.lazy="formdata.Lname"></input>
+             <hr>
+             <label>Age</label>
+             <input type="text" v-model.number.lazy="formdata.age"></input>
+             <hr>
+             <button type="submit">Submit</button>
+
+    </form>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+         formdata:{
+             name:'',
+             Lname:'',
+             age:''
+         }
+      },
+      methods: {
+          formHandler(){
+              console.log(this.formdata);
+          }
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="userage > allowedage">
+        Hy your are good to go..!!
+      </p>
+      <p v-else-if="user ==='kamesh'">
+        {{user}} your are allowed...!
+      </p>
+      <p v-else>
+        You are not allowed..!!
+      </p>
+      <p v-if="checkuser()">
+        {{user}} allowed by checkuser method...!!
+      </p>
+      <p v-else>
+        {{user}} not allowed..!!
+      </p>
+      <p v-show="user === 'chavali'">
+        Show It by v-show...!!
+      </p>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        user: 'chavali',
+        allowedage: 18,
+        userage: 15,
+      },
+      methods: {
+        checkuser() {
+          return this.user === 'kamesh' ? yes : false;
+        },
+      },
+    });
+  </script>
+</html>

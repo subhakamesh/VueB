@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-for="(name,index) in names">
+        {{index}} . {{ name }}
+      </p>
+      <ul>
+        <li v-for="(car,index) in cars">
+          {{index}} . {{car.brand}} / {{car.color}}
+        </li>
+      </ul>
+      <ul>
+        <li v-for="( value,key,index) in data ">
+          {{index}} . {{key}} / {{value}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        names: ['kamesh', 'raghava', 'sushma', 'Krishna'], //Array
+        cars: [
+          //Object
+          {
+            brand: 'Tata',
+            color: 'Red',
+          },
+          {
+            brand: 'Kya',
+            color: 'Blue',
+          },
+          {
+            brand: 'Maruthi',
+            color: 'White',
+          },
+        ],
+        data: {
+          name: 'kamesh',
+          age: '29',
+          Ph: '7893000996',
+        },
+      },
+    });
+  </script>
+</html>

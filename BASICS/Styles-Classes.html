@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        v-bind:class="[
+        colors.redclass.active ? colors.redclass.name : ''
+                      ]"
+        v-on:click="colors.redclass.active = !colors.redclass.active,
+        newStyle.fontSize = '50px'"
+        v-bind:style="newStyle"
+      >
+        Hello Vue..!
+      </div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        colors: {
+          redclass: {
+            name: 'red',
+            active: true,
+          },
+        },
+        newStyle: {
+          fontSize: '25px',
+          border: '2px solid green',
+        },
+      },
+      methods: {
+        changecolor() {
+          this.colorstyle = 'blue';
+        },
+      },
+    });
+  </script>
+  <style>
+    .element {
+      background: red;
+      color: white;
+    }
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
+  </style>
+</html>

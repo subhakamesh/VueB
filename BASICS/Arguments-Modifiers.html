@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{name}}
+      <div v-on:click="updatename('chavali',$event)">
+        Click Me...!!
+      </div>
+      <form v-on:submit.prevent="handleform">
+        <input />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'kamesh',
+      },
+      methods: {
+        updatename(nam, event) {
+          this.name = nam;
+          console.log(event);
+        },
+        handleform() {
+          console.log('Form Submit');
+        },
+      },
+    });
+  </script>
+</html>

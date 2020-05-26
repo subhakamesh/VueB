@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{name}}</p>
+      <div v-on:click="updatename">Click Me..!!</div>
+      <div class="box" v-on:mousemove="mousemovee"></div>
+      <p>
+        x : {{x}}
+      </p>
+      <p>
+        y: {{y}}
+      </p>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'kamesh',
+        x: 0,
+        y: 0,
+      },
+      methods: {
+        updatename() {
+          this.name = 'chavali';
+        },
+        mousemovee(event) {
+          this.x = event.clientX;
+          this.y = event.clientY;
+        },
+      },
+    });
+  </script>
+  <style>
+    .box {
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</html>
