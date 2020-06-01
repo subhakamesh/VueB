@@ -1,6 +1,7 @@
 <template>
   <div>
-    {{ name }}
+    <app-header></app-header>
+    <div>{{ name }}</div>
   </div>
 </template>
 
