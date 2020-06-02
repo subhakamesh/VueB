@@ -2,9 +2,16 @@
   <div>
     <app-header></app-header>
 
-    <div class="container"></div>
-    <userProf :name="name" lastname="Sai Subha" />
-    <button @click="changename">Change Name</button>
+    <div class="container">
+      <userProf
+        :profilename="name"
+        :profilelastname="lastname"
+        :profileage="age"
+        :profileparents="parents"
+        @changename="name = $event"
+        :updatelastname="updatelastname"
+      />
+    </div>
     <compFooter />
   </div>
 </template>
@@ -16,14 +23,22 @@ import userProf from "./components/User/Profile.vue";
 export default {
   data() {
     return {
-      name: "kamesh"
+      name: "kamesh",
+      lastname: "Sai Subha",
+      //prop type console error age should not be string in child
+      age: 28,
+      parents: {
+        mother: "kanaka durga",
+        father: "Dattatreya Sharma"
+      }
     };
   },
   methods: {
-    changename() {
-      this.name = "Chavali";
+    updatelastname(value) {
+      this.lastname = value;
     }
   },
+
   components: {
     compFooter,
     userProf
